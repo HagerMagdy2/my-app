@@ -1,7 +1,18 @@
 import React from "react";
 import { useReducer,useRef } from "react";
+import { useFormik } from "formik";
 
 function Store() {
+ 
+  const formik=useFormik({
+    initialValues: { name: '', password: '' },
+
+    onSubmit: values => {
+      console.log('Submitting', values);
+    },
+  })
+
+
   let initialState = 0;
   const username=useRef();
   const password=useRef();
@@ -31,6 +42,12 @@ console.log(password.current.value);
       <form onSubmit={handel}>
       <input type="text" placeholder="name" ref={username} />
       <input type="text" placeholder="password" ref={password} />
+      <button type="submit">Submit</button>
+      </form>
+
+      <form onSubmit={formik.handleSubmit}>
+      <input type="text" id="name" name="name" placeholder="name" onChange={formik.handleChange} value={formik.values.name} />
+      <input type="text" id="password" placeholder="password" name="password" onChange={formik.handleChange} value={formik.values.password} />
       <button type="submit">Submit</button>
       </form>
     
