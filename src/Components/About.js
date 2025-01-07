@@ -1,9 +1,35 @@
-import React from 'react'
+import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function About() {
+  const [post, setPost] = useState({});
+  const[id,setId]=useState(1);
+  useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((res) => {
+        setPost(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
   return (
-    <div>About</div>
-  )
+    <React.Fragment>
+      {/* {posts.map((post) => {
+        return (
+          // <div key={post.id}>
+          //   <h2>{post.title}</h2>
+          //   <p>{post.body}</p>
+          // </div>
+        );
+      })} */}
+      <div>{post.title}</div><button onClick={()=>setId((next)=>next+1)}>inctease</button>
+    </React.Fragment>
+  );
 }
 
-export default About
+export default About;
