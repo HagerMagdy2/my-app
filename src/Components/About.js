@@ -27,7 +27,7 @@ function About() {
           // </div>
         );
       })} */}
-      <div>{post.title}</div><button onClick={()=>setId((next)=>next+1)}>inctease</button>
+    post id is: {id} post title is:  <div>{post.title}</div><button onClick={()=>setId((next)=>next+1)}>inctease</button>
     </React.Fragment>
   );
 }
