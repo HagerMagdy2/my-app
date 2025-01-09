@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 function About() {
   const [post, setPost] = useState({});
   const[id,setId]=useState(1);
+  //using useEffect + axios Laibrary to feach API
   useEffect(() => {
     axios
       .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
