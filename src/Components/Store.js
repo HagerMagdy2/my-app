@@ -37,6 +37,7 @@ console.log(password.current.value);
   return (
     <div>
       the count is {count}{" "}
+      {/* using useReduser */}
       <button onClick={() => dispatch("INCREMENT")}>increase</button>
       <button onClick={() => dispatch("DECREMENT")}>decrese</button>
       <form onSubmit={handel}>
@@ -44,7 +45,7 @@ console.log(password.current.value);
       <input type="text" placeholder="password" ref={password} />
       <button type="submit">Submit</button>
       </form>
-
+{/* using formik */}
       <form onSubmit={formik.handleSubmit}>
       <input type="text" id="name" name="name" placeholder="name" onChange={formik.handleChange} value={formik.values.name} />
       <input type="text" id="password" placeholder="password" name="password" onChange={formik.handleChange} value={formik.values.password} />
